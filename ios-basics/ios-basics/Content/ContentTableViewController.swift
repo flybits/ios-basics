@@ -7,8 +7,8 @@
 //
 
 import UIKit
-import FlybitsKernelSDK
-import FlybitsSDK
+import FlybitsConciergeSDK
+import FlybitsSmartRewardsSDK
 import CoreLocation
 
 class ContentTableViewController: UITableViewController {
@@ -18,36 +18,24 @@ class ContentTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        FlybitsManager.connect(AnonymousIDP(), projectId: "7DE8F413-95FC-4FF9-B1C9-D51ACB4ECDEC") { (user, error) in
-
-            // This object will create a filter looking for content that is labelled grocery. By removing this param and making it nil All content will
-            // returned. Change the Grocery value to filter different types or make an array, ["Grocery, "Fitness"] etc, to filter multiple.
-//            let query = ContentQuery(contentTypes: ["place": LocationContent.self], labelsQuery: LabelsQuery(predicates: [LabelsPredicate(labels: ["Grocery"], booleanOperator: .and)], booleanOperator: .and), pager: nil)
-
-            // Will return all content. In this case there is no content label filter.
-            let query = ContentQuery(contentTypes: ["place": LocationContent.self], labelsQuery: nil, pager: nil)
-            query.locationQuery = LocationQuery(key: "address", location: CLLocationCoordinate2D(latitude: 37.76224645239545, longitude: -122.39189772883611), radius: 10000)
+        FlybitsConciergeManager.shared.register(contentTemplates: SmartRewardsContentViewables.contentViewables())
 
 
-            _ = Content.getAllInstances(with: query) { (paged, error) in
-                guard let contentElements = paged?.elements else {
-                    print("No Elements")
-                    return
-
-                }
-
-                contentElements.forEach { (content) in
-                    if let pagedData = content.pagedContentData, let first = pagedData.elements.first, let locationData = first as? LocationContent {
-                        self.contentData.append(locationData)
-                    }
-                }
-
-                DispatchQueue.main.sync {
-                    self.tableView.reloadData()
-                }
-
+        if FlybitsManager.isConnected {
+            FlybitsConciergeManager.shared.connectFlybitsManager(to: "7DE8F413-95FC-4FF9-B1C9-D51ACB4ECDEC", with: AnonymousIDP()) { (error) in
+               DispatchQueue.main.async {
+                  let viewController = FlybitsConciergeManager.conciergeViewController(for: "7DE8F413-95FC-4FF9-B1C9-D51ACB4ECDEC", using: "", display: [:])
+                  self.present(viewController, animated: true, completion: nil)
+              }
+            }
+        } else {
+            DispatchQueue.main.async {
+               let viewController = FlybitsConciergeManager.conciergeViewController(for: "7DE8F413-95FC-4FF9-B1C9-D51ACB4ECDEC", using: "", display: [:])
+               self.present(viewController, animated: true, completion: nil)
             }
         }
+
+
     }
 
     // MARK: - Table view data source
