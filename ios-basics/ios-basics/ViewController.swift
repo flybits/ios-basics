@@ -12,31 +12,106 @@ import FlybitsSDK
 import CoreLocation
 
 class ViewController: UIViewController {
+    
+    // Mark: - Constants
+    struct Constants {
+        static let mainScreenCellIdentifier = "MainScreenCellIdentifier"
+        static let defaultCellIdentifier = "DefaultCellIdentifier"
+        static let options = ["Relevant Content", "Scopes"]
+    }
+    
+    private let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        title = "iOS-Basic"
+        
+        collectionView.backgroundColor = .clear
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        
+        view.addSubview(collectionView)
+        collectionView.pin(to: view)
+        
+        collectionView.register(MainViewCell.self, forCellWithReuseIdentifier: Constants.mainScreenCellIdentifier)
+        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: Constants.defaultCellIdentifier)
+    }
+}
 
-//        if !FlybitsManager.isConnected {
-        FlybitsManager.connect(AnonymousIDP(), projectId: "9DD55F62-F72B-42DA-893E-97958EEB0463") { (user, error) in
+// MARK: - UICollectionViewDelegate, UICollectionViewDataSource
+extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return Constants.options.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.mainScreenCellIdentifier, for: indexPath) as? MainViewCell {
+            
+            cell.viewModel = MainViewCell.ViewModel(name: Constants.options[indexPath.row])
+            return cell
+        }
+        
+        return collectionView.dequeueReusableCell(withReuseIdentifier: Constants.defaultCellIdentifier, for: indexPath)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        switch indexPath.row {
+        case 0:
+            let contentTableVC = ContentTableViewController()
+            navigationController?.pushViewController(contentTableVC, animated: true)
+        case 1:
+            let scopesVC = ScopesViewController()
+            navigationController?.pushViewController(scopesVC, animated: true)
+        default:
+            break
+        }
+    }
+}
 
-            let query = ContentQuery(contentTypes: ["place": LocationContent.self], labelsQuery: nil, pager: nil)
-            query.locationQuery = LocationQuery(key: "address", location: CLLocationCoordinate2D(latitude: 37.76224645239545, longitude: -122.39189772883611), radius: 10000)
+// MARK: - UICollectionViewDelegateFlowLayout
+extension ViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: UIScreen.main.bounds.width, height: 44.0)
+    }
+}
 
+// MARK: - MainViewCell
 
-            _ = Content.getAllInstances(with: query) { (paged, error) in
-                guard let p = paged?.elements else { return }
-
-                p.forEach { (content) in
-                    print(content.pagedContentData?.elements)
-                }
-
+class MainViewCell: UICollectionViewCell {
+    
+    // MARK: - Design
+    struct Design {
+        static let titleLabelInsects = UIEdgeInsets(top: 10.0, left: 10.0, bottom: 10.0, right: 10.0)
+    }
+    
+    // MARK: - ViewModel
+    struct ViewModel {
+        let name: String
+    }
+    
+    private let titleLabel = UILabel()
+    
+    var viewModel: MainViewCell.ViewModel? {
+        didSet {
+            if let viewModel = viewModel {
+                titleLabel.text = viewModel.name
             }
         }
-//        } else {
-//        }
     }
-
-
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        
+        backgroundColor = .groupTableViewBackground
+        
+        addSubview(titleLabel)
+        titleLabel.pin(to: self, insets: Design.titleLabelInsects)
+    }
+    
+    @available(*, unavailable)
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 }
 
