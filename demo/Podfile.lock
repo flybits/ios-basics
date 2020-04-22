@@ -1,0 +1,44 @@
+PODS:
+  - FlybitsConciergeSDK (3.3.0):
+    - FlybitsContextSDK (= 3.3.0)
+    - FlybitsKernelSDK (= 3.3.0)
+    - FlybitsPushSDK (= 3.3.0)
+    - FlybitsSDK (= 3.3.0)
+  - FlybitsContextLocationPluginSDK (3.3.0):
+    - FlybitsContextSDK (= 3.3.0)
+    - FlybitsSDK (= 3.3.0)
+  - FlybitsContextSDK (3.3.0):
+    - FlybitsSDK (= 3.3.0)
+  - FlybitsKernelSDK (3.3.0):
+    - FlybitsSDK (= 3.3.0)
+  - FlybitsPushSDK (3.3.0):
+    - FlybitsSDK (= 3.3.0)
+  - FlybitsSDK (3.3.0)
+
+DEPENDENCIES:
+  - FlybitsConciergeSDK (= 3.3.0)
+  - FlybitsContextLocationPluginSDK (= 3.3.0)
+  - FlybitsContextSDK (= 3.3.0)
+  - FlybitsKernelSDK (= 3.3.0)
+  - FlybitsPushSDK (= 3.3.0)
+
+SPEC REPOS:
+  https://github.com/flybits/Spec-Xcode-11.3.1.git:
+    - FlybitsConciergeSDK
+    - FlybitsContextLocationPluginSDK
+    - FlybitsContextSDK
+    - FlybitsKernelSDK
+    - FlybitsPushSDK
+    - FlybitsSDK
+
+SPEC CHECKSUMS:
+  FlybitsConciergeSDK: 7e2e258d1d589b3a5d81d91f7edfaa5cb7c5014b
+  FlybitsContextLocationPluginSDK: 921312a2044de3eda0f9db7d4d9c3ee2d15847cd
+  FlybitsContextSDK: 515cae3b8809b92d12f676485b0fe59d13f3c824
+  FlybitsKernelSDK: 3a05137365af4f5140ed12a41007e45332725f5b
+  FlybitsPushSDK: ed45975c7aa01a12d88359353846b224fc474212
+  FlybitsSDK: 63318ecc10c79d106040e6bd3af1da5fc5a8553e
+
+PODFILE CHECKSUM: 89738af15c384b4a8c136539b33f319b1f153109
+
+COCOAPODS: 1.8.4
