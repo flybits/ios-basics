@@ -38,6 +38,8 @@ class HomeViewController: BaseViewController, FlybitsScope {
 
     private func setTheme() {
         view.backgroundColor = .systemGroupedBackground
+        navigationController?.navigationBar.prefersLargeTitles = true
+        title = "ABC Bank"
         
         collectionView.backgroundColor = .clear
         collectionView.dataSource = self
