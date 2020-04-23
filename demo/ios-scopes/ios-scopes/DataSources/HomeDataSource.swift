@@ -17,6 +17,12 @@ enum HomeDataType {
     case myInvestmentOffline
     case myInvestment
     case connect
+    case transfer
+    case bills
+    case openAccount
+    case quote
+    case faq
+    case terms
     case unknown
 }
 
@@ -27,7 +33,7 @@ struct HomeDataSource {
     }
     
     func numberOfRow(for section: Int) -> Int {
-        return FlybitsManager.isConnected ? 3 : 4
+        return FlybitsManager.isConnected ? 9 : 4
     }
     
     func dataType(for indexPath: IndexPath) -> HomeDataType? {
@@ -39,7 +45,17 @@ struct HomeDataSource {
         case 2:
             return FlybitsManager.isConnected ? .myInvestment : .myInvestmentOffline
         case 3:
-            return .connect
+            return FlybitsManager.isConnected ? .transfer : .connect
+        case 4:
+            return .bills
+        case 5:
+            return .openAccount
+        case 6:
+            return .quote
+        case 7:
+            return .faq
+        case 8:
+            return .terms
         default:
             return .unknown
         }

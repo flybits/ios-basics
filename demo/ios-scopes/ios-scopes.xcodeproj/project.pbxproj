@@ -11,9 +11,12 @@
 		B781A5D024509A2F00C981FD /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B781A5CF24509A2F00C981FD /* BaseViewController.swift */; };
 		B781A5D324509D3A00C981FD /* ControlCentreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B781A5D224509D3A00C981FD /* ControlCentreViewController.swift */; };
 		B781A5D624510E4000C981FD /* HomeDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B781A5D524510E4000C981FD /* HomeDataSource.swift */; };
-		B781A5DA245118F400C981FD /* HomeOfflineCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B781A5D9245118F400C981FD /* HomeOfflineCell.swift */; };
+		B781A5DA245118F400C981FD /* HomeRegularCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B781A5D9245118F400C981FD /* HomeRegularCell.swift */; };
 		B781A5DC2451224500C981FD /* HomeLoginCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B781A5DB2451224500C981FD /* HomeLoginCell.swift */; };
 		B781A5DE24513EE300C981FD /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = B781A5DD24513EE300C981FD /* Color.swift */; };
+		B781A5E02451D5A500C981FD /* HomeMyAccountCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B781A5DF2451D5A500C981FD /* HomeMyAccountCell.swift */; };
+		B781A5E2245206EA00C981FD /* HomeMyExpensesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B781A5E1245206EA00C981FD /* HomeMyExpensesCell.swift */; };
+		B781A5E424520C7500C981FD /* HomeMyInvestmentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B781A5E324520C7500C981FD /* HomeMyInvestmentCell.swift */; };
 		B7EBCB54244F8F0A00572247 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7EBCB53244F8F0A00572247 /* AppDelegate.swift */; };
 		B7EBCB56244F8F0A00572247 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7EBCB55244F8F0A00572247 /* SceneDelegate.swift */; };
 		B7EBCB5D244F8F0B00572247 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B7EBCB5C244F8F0B00572247 /* Assets.xcassets */; };
@@ -30,9 +33,12 @@
 		B781A5CF24509A2F00C981FD /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		B781A5D224509D3A00C981FD /* ControlCentreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ControlCentreViewController.swift; path = "ios-scopes/Controllers/Base/ControlCentreViewController.swift"; sourceTree = SOURCE_ROOT; };
 		B781A5D524510E4000C981FD /* HomeDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDataSource.swift; sourceTree = "<group>"; };
-		B781A5D9245118F400C981FD /* HomeOfflineCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeOfflineCell.swift; sourceTree = "<group>"; };
+		B781A5D9245118F400C981FD /* HomeRegularCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRegularCell.swift; sourceTree = "<group>"; };
 		B781A5DB2451224500C981FD /* HomeLoginCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeLoginCell.swift; sourceTree = "<group>"; };
 		B781A5DD24513EE300C981FD /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		B781A5DF2451D5A500C981FD /* HomeMyAccountCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMyAccountCell.swift; sourceTree = "<group>"; };
+		B781A5E1245206EA00C981FD /* HomeMyExpensesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMyExpensesCell.swift; sourceTree = "<group>"; };
+		B781A5E324520C7500C981FD /* HomeMyInvestmentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMyInvestmentCell.swift; sourceTree = "<group>"; };
 		B7EBCB50244F8F0A00572247 /* ios-scopes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ios-scopes.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7EBCB53244F8F0A00572247 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B7EBCB55244F8F0A00572247 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -97,8 +103,11 @@
 		B781A5D82451176E00C981FD /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				B781A5D9245118F400C981FD /* HomeOfflineCell.swift */,
+				B781A5D9245118F400C981FD /* HomeRegularCell.swift */,
 				B781A5DB2451224500C981FD /* HomeLoginCell.swift */,
+				B781A5DF2451D5A500C981FD /* HomeMyAccountCell.swift */,
+				B781A5E1245206EA00C981FD /* HomeMyExpensesCell.swift */,
+				B781A5E324520C7500C981FD /* HomeMyInvestmentCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -306,6 +315,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B7EBCB75244F9E4B00572247 /* UIView+Utilities.swift in Sources */,
+				B781A5E424520C7500C981FD /* HomeMyInvestmentCell.swift in Sources */,
 				B7EBCB6F244F98D400572247 /* HomeViewController.swift in Sources */,
 				B7EBCB74244F9E4B00572247 /* UIView+AutoLayout.swift in Sources */,
 				B7EBCB54244F8F0A00572247 /* AppDelegate.swift in Sources */,
@@ -316,7 +326,9 @@
 				B7EBCB56244F8F0A00572247 /* SceneDelegate.swift in Sources */,
 				B781A5DC2451224500C981FD /* HomeLoginCell.swift in Sources */,
 				B7EBCB6C244F974500572247 /* MainViewController.swift in Sources */,
-				B781A5DA245118F400C981FD /* HomeOfflineCell.swift in Sources */,
+				B781A5DA245118F400C981FD /* HomeRegularCell.swift in Sources */,
+				B781A5E02451D5A500C981FD /* HomeMyAccountCell.swift in Sources */,
+				B781A5E2245206EA00C981FD /* HomeMyExpensesCell.swift in Sources */,
 				B781A5D324509D3A00C981FD /* ControlCentreViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

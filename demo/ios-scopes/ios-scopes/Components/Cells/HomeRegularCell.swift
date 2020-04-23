@@ -8,16 +8,16 @@
 
 import UIKit
 
-class HomeOfflineCell: UICollectionViewCell {
+class HomeRegularCell: UICollectionViewCell {
     
     private let titleLabel = UILabel()
     
     // MARK: - ViewModel
-    struct HomeOfflineViewModel {
+    struct HomeRegularViewModel {
         let title: String
     }
     
-    var viewModel: HomeOfflineViewModel? {
+    var viewModel: HomeRegularViewModel? {
         didSet {
             if let viewModel = viewModel {
                 titleLabel.text = viewModel.title
@@ -32,8 +32,8 @@ class HomeOfflineCell: UICollectionViewCell {
         
         titleLabel.font = .systemFont(ofSize: 14.0)
         
-        addSubview(titleLabel)
-        titleLabel.pin(to: self, padding: UIEdgeInsets(top: 10.0, left: 10.0, bottom: 10.0, right: 10.0))
+        contentView.addSubview(titleLabel)
+        titleLabel.pin(to: contentView, padding: UIEdgeInsets(top: 10.0, left: 20.0, bottom: 10.0, right: 20.0))
     }
     
     @available(*, unavailable)

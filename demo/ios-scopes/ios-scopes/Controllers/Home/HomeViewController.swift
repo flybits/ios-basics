@@ -16,6 +16,9 @@ class HomeViewController: BaseViewController, FlybitsScope {
         static let defaultCellIdentifier = "defaultCellIdentifier"
         static let homeOfflineCellIdentifier = "homeOfflineCellIdentifier"
         static let homeLoginCellIdentifier = "homeLoginCellIdentifier"
+        static let homeMyAccountCellIdentifier = "homeMyAccountCellIdentifier"
+        static let homeMyExpensesCellIdentifier = "homeMyExpensesCellIdentifier"
+        static let homeMyInvestmentCellIdentifier = "homeMyInvestmentCellIdentifier"
     }
     
     private let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
@@ -48,13 +51,16 @@ class HomeViewController: BaseViewController, FlybitsScope {
     
     private func registerClasses() {
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: Constants.defaultCellIdentifier)
-        collectionView.register(HomeOfflineCell.self, forCellWithReuseIdentifier: Constants.homeOfflineCellIdentifier)
+        collectionView.register(HomeRegularCell.self, forCellWithReuseIdentifier: Constants.homeOfflineCellIdentifier)
         collectionView.register(HomeLoginCell.self, forCellWithReuseIdentifier: Constants.homeLoginCellIdentifier)
+        collectionView.register(HomeMyAccountCell.self, forCellWithReuseIdentifier: Constants.homeMyAccountCellIdentifier)
+        collectionView.register(HomeMyExpensesCell.self, forCellWithReuseIdentifier: Constants.homeMyExpensesCellIdentifier)
+        collectionView.register(HomeMyInvestmentCell.self, forCellWithReuseIdentifier: Constants.homeMyInvestmentCellIdentifier)
     }
     
     private func doLayout() {
         view.addSubview(collectionView)
-        collectionView.pin(to: view, padding: UIEdgeInsets(top: 0.0, left: 20.0, bottom: 0.0, right: 20.0))
+        collectionView.pinToSuperView()
     }
     
     // MARK: - FlybitsScope
@@ -83,29 +89,59 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
         if let dataType = dataSource.dataType(for: indexPath) {
             switch dataType {
             case .myAccountOffline:
-                if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.homeOfflineCellIdentifier, for: indexPath) as? HomeOfflineCell {
-                    cell.viewModel = HomeOfflineCell.HomeOfflineViewModel(title: "My Account")
+                if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.homeOfflineCellIdentifier, for: indexPath) as? HomeRegularCell {
+                    cell.viewModel = HomeRegularCell.HomeRegularViewModel(title: "My Account")
                     return cell
                 }
             case .myAccount:
-                break
+                return collectionView.dequeueReusableCell(withReuseIdentifier: Constants.homeMyAccountCellIdentifier, for: indexPath)
             case .myExpensesOffline:
-                if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.homeOfflineCellIdentifier, for: indexPath) as? HomeOfflineCell {
-                    cell.viewModel = HomeOfflineCell.HomeOfflineViewModel(title: "My Expenses")
+                if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.homeOfflineCellIdentifier, for: indexPath) as? HomeRegularCell {
+                    cell.viewModel = HomeRegularCell.HomeRegularViewModel(title: "My Expenses")
                     return cell
                 }
             case .myExpenses:
-                break
+                return collectionView.dequeueReusableCell(withReuseIdentifier: Constants.homeMyExpensesCellIdentifier, for: indexPath)
             case .myInvestmentOffline:
-                if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.homeOfflineCellIdentifier, for: indexPath) as? HomeOfflineCell {
-                    cell.viewModel = HomeOfflineCell.HomeOfflineViewModel(title: "My Investment")
+                if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.homeOfflineCellIdentifier, for: indexPath) as? HomeRegularCell {
+                    cell.viewModel = HomeRegularCell.HomeRegularViewModel(title: "My Investment")
                     return cell
                 }
             case .myInvestment:
-                break
+                return collectionView.dequeueReusableCell(withReuseIdentifier: Constants.homeMyInvestmentCellIdentifier, for: indexPath)
             case .connect:
                 if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.homeLoginCellIdentifier, for: indexPath) as? HomeLoginCell {
                     cell.viewModel = HomeLoginCell.HomeLoginViewModel(title: "Login")
+                    return cell
+                }
+            case .transfer:
+                if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.homeOfflineCellIdentifier, for: indexPath) as? HomeRegularCell {
+                    cell.viewModel = HomeRegularCell.HomeRegularViewModel(title: "Transfer")
+                    return cell
+                }
+            case .bills:
+                if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.homeOfflineCellIdentifier, for: indexPath) as? HomeRegularCell {
+                    cell.viewModel = HomeRegularCell.HomeRegularViewModel(title: "Bills")
+                    return cell
+                }
+            case .openAccount:
+                if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.homeOfflineCellIdentifier, for: indexPath) as? HomeRegularCell {
+                    cell.viewModel = HomeRegularCell.HomeRegularViewModel(title: "Open A New Account")
+                    return cell
+                }
+            case .quote:
+                if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.homeOfflineCellIdentifier, for: indexPath) as? HomeRegularCell {
+                    cell.viewModel = HomeRegularCell.HomeRegularViewModel(title: "Quote")
+                    return cell
+                }
+            case .faq:
+                if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.homeOfflineCellIdentifier, for: indexPath) as? HomeRegularCell {
+                    cell.viewModel = HomeRegularCell.HomeRegularViewModel(title: "FAQ")
+                    return cell
+                }
+            case .terms:
+                if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.homeOfflineCellIdentifier, for: indexPath) as? HomeRegularCell {
+                    cell.viewModel = HomeRegularCell.HomeRegularViewModel(title: "Terms & Conditions")
                     return cell
                 }
             default:
@@ -138,7 +174,19 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
 // MARK: - UICollectionViewDelegateFlowLayout
 extension HomeViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.width, height: 60.0)
+        let sectionInsects = self.collectionView(collectionView, layout: collectionViewLayout, insetForSectionAt: indexPath.section)
+        
+        if let dataType = dataSource.dataType(for: indexPath) {
+            if dataType == .myAccount {
+                return CGSize(width: collectionView.frame.width - sectionInsects.left - sectionInsects.right, height: 120.0)
+            } else if dataType == .myExpenses {
+                 return CGSize(width: collectionView.frame.width - sectionInsects.left - sectionInsects.right, height: 140.0)
+            } else if dataType == .myInvestment {
+                 return CGSize(width: collectionView.frame.width - sectionInsects.left - sectionInsects.right, height: 120.0)
+            }
+        }
+        
+        return CGSize(width: collectionView.frame.width - sectionInsects.left - sectionInsects.right, height: 60.0)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {

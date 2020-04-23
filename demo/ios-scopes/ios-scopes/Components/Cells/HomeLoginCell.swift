@@ -33,7 +33,7 @@ class HomeLoginCell: UICollectionViewCell {
         loginLabel.font = .systemFont(ofSize: 14.0)
         loginLabel.textAlignment = .center
         
-        addSubview(loginLabel)
+        contentView.addSubview(loginLabel)
         loginLabel.pin(to: self, padding: UIEdgeInsets(top: 10.0, left: 10.0, bottom: 10.0, right: 10.0))
     }
     
