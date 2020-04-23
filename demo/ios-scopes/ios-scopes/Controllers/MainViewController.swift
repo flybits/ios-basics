@@ -30,24 +30,42 @@ class MainViewController: UITabBarController, FlybitsScope {
     }
     
     private func initControls() {
+        var tabTitles = [String]()
+        var tabImages = [UIImage]()
         let homeController = HomeViewController()
-        let tabTitles = [TabControllerId.home.rawValue]
-        let tabImages: [UIImage] = [#imageLiteral(resourceName: "Home")]
         
-        controllers.append(homeController)
-        controllerIds.append(.home)
+        if FlybitsManager.isConnected {
+            tabTitles.append(contentsOf: [TabControllerId.home.rawValue, TabControllerId.controlCentre.rawValue, TabControllerId.concierge.rawValue])
+            tabImages.append(contentsOf: [#imageLiteral(resourceName: "Home"), #imageLiteral(resourceName: "ControlCentre"), #imageLiteral(resourceName: "Concierge")])
+            
+            let controlCentreVC = ControlCentreViewController()
+            let conciergeVC = FlybitsConciergeManager.conciergeViewController(for: "D57EBC96-209B-44F7-88F7-091EF8CEA4B5", using: "", display: [.displayMode: DisplayMode.navigation], callback: nil)
+            
+            controllers.append(contentsOf: [homeController, controlCentreVC, conciergeVC])
+            controllerIds.append(contentsOf: [.home, .controlCentre, .concierge])
+        } else {
+            tabTitles.append(TabControllerId.home.rawValue)
+            tabImages.append(#imageLiteral(resourceName: "Home"))
+            
+            controllers.append(homeController)
+            controllerIds.append(.home)
+        }
         
         for (index, controller) in controllers.enumerated() {
-          controller.tabBarItem.title = tabTitles[index]
-          controller.tabBarItem.image = tabImages[index]
-          
-          if index == 0 {
+            controller.tabBarItem.title = tabTitles[index]
+            controller.tabBarItem.image = tabImages[index]
+
+            if index == 0 {
             controller.tabBarItem.setTitleTextAttributes([.font: UIFont.systemFont(ofSize: 10.0, weight: .bold), .foregroundColor: UIColor.black], for: .normal)
-          } else {
+            } else {
             controller.tabBarItem.setTitleTextAttributes([.font: UIFont.systemFont(ofSize: 10.0, weight: .regular), .foregroundColor: UIColor.black], for: .normal)
-          }
+            }
           
-          controllers[index] = UINavigationController(rootViewController: controller)
+            if controllerIds[index] == .concierge {
+                controllers[index] = controller
+            } else {
+                controllers[index] = UINavigationController(rootViewController: controller)
+            }
         }
     }
     

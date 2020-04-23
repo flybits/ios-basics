@@ -21,6 +21,8 @@ class BaseViewController: UIViewController {
     
     /// Start a loading animation
     func startLoading() {
+        view.isUserInteractionEnabled = false
+        
         view.addSubview(loadingSpinner)
         loadingSpinner.center = view.center
         loadingSpinner.startAnimating()
@@ -28,9 +30,9 @@ class BaseViewController: UIViewController {
     
     /// Stop a loading animation
     func stopLoading() {
-        DispatchQueue.main.async {
-            self.loadingSpinner.stopAnimating()
-            self.loadingSpinner.removeFromSuperview()
-        }
+        self.loadingSpinner.stopAnimating()
+        self.loadingSpinner.removeFromSuperview()
+        
+        view.isUserInteractionEnabled = true
     }
 }

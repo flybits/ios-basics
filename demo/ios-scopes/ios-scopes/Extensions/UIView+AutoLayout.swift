@@ -7,31 +7,7 @@
 //
 
 import Foundation
-
 import UIKit
-
-extension NSLayoutConstraint {
-    public func priority(_ priority: UILayoutPriority) -> Self {
-        self.priority = priority
-        return self
-    }
-}
-
-public protocol Constrainable {
-    var leadingAnchor: NSLayoutXAxisAnchor { get }
-    var trailingAnchor: NSLayoutXAxisAnchor { get }
-    var leftAnchor: NSLayoutXAxisAnchor { get }
-    var rightAnchor: NSLayoutXAxisAnchor { get }
-    var topAnchor: NSLayoutYAxisAnchor { get }
-    var bottomAnchor: NSLayoutYAxisAnchor { get }
-    var widthAnchor: NSLayoutDimension { get }
-    var heightAnchor: NSLayoutDimension { get }
-    var centerXAnchor: NSLayoutXAxisAnchor { get }
-    var centerYAnchor: NSLayoutYAxisAnchor { get }
-}
-
-extension UIView: Constrainable {}
-extension UILayoutGuide: Constrainable {}
 
 public extension UIView {
     @discardableResult
@@ -42,14 +18,21 @@ public extension UIView {
     }
     
     @discardableResult
-    func pin(to constrainable: Constrainable, insets: UIEdgeInsets = .zero) -> Self {
+    func pin(to view: UIView, padding: UIEdgeInsets = UIEdgeInsets.zero) -> Self {
         NSLayoutConstraint.activate([
-            leftAnchor.constraint(equalTo: constrainable.leftAnchor, constant: insets.left),
-            topAnchor.constraint(equalTo: constrainable.topAnchor, constant: insets.top),
-            rightAnchor.constraint(equalTo: constrainable.rightAnchor, constant: -insets.right),
-            bottomAnchor.constraint(equalTo: constrainable.bottomAnchor, constant: -insets.bottom)
+            self.topAnchor.constraint(equalTo: view.topAnchor, constant: padding.top),
+            self.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -padding.bottom),
+            self.leftAnchor.constraint(equalTo: view.leftAnchor, constant: padding.left),
+            self.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -padding.right),
         ])
         self.translatesAutoresizingMaskIntoConstraints = false
         return self
+    }
+    
+    func pinToSuperView() {
+      guard let superView = superview else {
+        fatalError("You need super view")
+      }
+      pin(to: superView)
     }
 }

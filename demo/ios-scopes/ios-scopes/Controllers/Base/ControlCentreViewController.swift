@@ -7,12 +7,31 @@
 //
 
 import UIKit
+import FlybitsSDK
 
 class ControlCentreViewController: BaseViewController {
+    
+    private let disconnectButton = UIButton()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         view.backgroundColor = .red
+        
+        disconnectButton.setTitle("Logout", for: .normal)
+        disconnectButton.addTarget(self, action: #selector(disconnect), for: .touchUpInside)
+        
+        view.addSubview(disconnectButton)
+        disconnectButton.pin([
+            disconnectButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            disconnectButton.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        ])
+    }
+    
+    @objc
+    private func disconnect() {
+        FlybitsManager.disconnect { [weak self] jwtToken, error in
+            self?.stopLoading()
+        }
     }
 }
