@@ -17,6 +17,7 @@
 		B781A5E02451D5A500C981FD /* HomeMyAccountCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B781A5DF2451D5A500C981FD /* HomeMyAccountCell.swift */; };
 		B781A5E2245206EA00C981FD /* HomeMyExpensesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B781A5E1245206EA00C981FD /* HomeMyExpensesCell.swift */; };
 		B781A5E424520C7500C981FD /* HomeMyInvestmentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B781A5E324520C7500C981FD /* HomeMyInvestmentCell.swift */; };
+		B781A5E62452176300C981FD /* ControlCentreCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B781A5E52452176300C981FD /* ControlCentreCell.swift */; };
 		B7EBCB54244F8F0A00572247 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7EBCB53244F8F0A00572247 /* AppDelegate.swift */; };
 		B7EBCB56244F8F0A00572247 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7EBCB55244F8F0A00572247 /* SceneDelegate.swift */; };
 		B7EBCB5D244F8F0B00572247 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B7EBCB5C244F8F0B00572247 /* Assets.xcassets */; };
@@ -39,6 +40,7 @@
 		B781A5DF2451D5A500C981FD /* HomeMyAccountCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMyAccountCell.swift; sourceTree = "<group>"; };
 		B781A5E1245206EA00C981FD /* HomeMyExpensesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMyExpensesCell.swift; sourceTree = "<group>"; };
 		B781A5E324520C7500C981FD /* HomeMyInvestmentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMyInvestmentCell.swift; sourceTree = "<group>"; };
+		B781A5E52452176300C981FD /* ControlCentreCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlCentreCell.swift; sourceTree = "<group>"; };
 		B7EBCB50244F8F0A00572247 /* ios-scopes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ios-scopes.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7EBCB53244F8F0A00572247 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B7EBCB55244F8F0A00572247 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 				B781A5DF2451D5A500C981FD /* HomeMyAccountCell.swift */,
 				B781A5E1245206EA00C981FD /* HomeMyExpensesCell.swift */,
 				B781A5E324520C7500C981FD /* HomeMyInvestmentCell.swift */,
+				B781A5E52452176300C981FD /* ControlCentreCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -321,6 +324,7 @@
 				B7EBCB54244F8F0A00572247 /* AppDelegate.swift in Sources */,
 				B781A5DE24513EE300C981FD /* Color.swift in Sources */,
 				B781A5D024509A2F00C981FD /* BaseViewController.swift in Sources */,
+				B781A5E62452176300C981FD /* ControlCentreCell.swift in Sources */,
 				B781A5D624510E4000C981FD /* HomeDataSource.swift in Sources */,
 				B7EBCB6A244F94C300572247 /* RootViewController.swift in Sources */,
 				B7EBCB56244F8F0A00572247 /* SceneDelegate.swift in Sources */,

@@ -21,18 +21,32 @@ class BaseViewController: UIViewController {
     
     /// Start a loading animation
     func startLoading() {
-        view.isUserInteractionEnabled = false
-        
-        view.addSubview(loadingSpinner)
-        loadingSpinner.center = view.center
-        loadingSpinner.startAnimating()
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            self.view.isUserInteractionEnabled = false
+            
+            self.view.addSubview(self.loadingSpinner)
+            self.loadingSpinner.center = self.view.center
+            self.loadingSpinner.startAnimating()
+        }
     }
     
     /// Stop a loading animation
     func stopLoading() {
-        self.loadingSpinner.stopAnimating()
-        self.loadingSpinner.removeFromSuperview()
-        
-        view.isUserInteractionEnabled = true
+        DispatchQueue.main.async { [weak self] in
+            self?.loadingSpinner.stopAnimating()
+            self?.loadingSpinner.removeFromSuperview()
+            
+            self?.view.isUserInteractionEnabled = true
+        }
+    }
+    
+    func showError(_ error: Error) {
+        DispatchQueue.main.async { [weak self] in
+            let alert = UIAlertController(title: "Oops", message: error.localizedDescription, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+            
+            self?.present(alert, animated: true, completion: nil)
+        }
     }
 }

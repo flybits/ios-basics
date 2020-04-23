@@ -14,7 +14,7 @@ class HomeViewController: BaseViewController, FlybitsScope {
     // MARK: - Constants
     struct Constants {
         static let defaultCellIdentifier = "defaultCellIdentifier"
-        static let homeOfflineCellIdentifier = "homeOfflineCellIdentifier"
+        static let homeRegularCellIdentifier = "homeRegularCellIdentifier"
         static let homeLoginCellIdentifier = "homeLoginCellIdentifier"
         static let homeMyAccountCellIdentifier = "homeMyAccountCellIdentifier"
         static let homeMyExpensesCellIdentifier = "homeMyExpensesCellIdentifier"
@@ -22,7 +22,7 @@ class HomeViewController: BaseViewController, FlybitsScope {
     }
     
     private let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
-    private let dataSource = HomeDataSource()
+    private var dataSource = HomeDataSource()
     
     deinit {
         FlybitsManager.removeScope(forKey: "\(self)")
@@ -51,7 +51,7 @@ class HomeViewController: BaseViewController, FlybitsScope {
     
     private func registerClasses() {
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: Constants.defaultCellIdentifier)
-        collectionView.register(HomeRegularCell.self, forCellWithReuseIdentifier: Constants.homeOfflineCellIdentifier)
+        collectionView.register(HomeRegularCell.self, forCellWithReuseIdentifier: Constants.homeRegularCellIdentifier)
         collectionView.register(HomeLoginCell.self, forCellWithReuseIdentifier: Constants.homeLoginCellIdentifier)
         collectionView.register(HomeMyAccountCell.self, forCellWithReuseIdentifier: Constants.homeMyAccountCellIdentifier)
         collectionView.register(HomeMyExpensesCell.self, forCellWithReuseIdentifier: Constants.homeMyExpensesCellIdentifier)
@@ -69,7 +69,9 @@ class HomeViewController: BaseViewController, FlybitsScope {
     func onConnected(user: User) {}
     
     func onDisconnected(jwtToken: String) {
-        collectionView.reloadData()
+        DispatchQueue.main.async {
+            self.collectionView.reloadData()
+        }
     }
     
     func onAccountDestroyed(jwtToken: String) {}
@@ -89,21 +91,21 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
         if let dataType = dataSource.dataType(for: indexPath) {
             switch dataType {
             case .myAccountOffline:
-                if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.homeOfflineCellIdentifier, for: indexPath) as? HomeRegularCell {
+                if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.homeRegularCellIdentifier, for: indexPath) as? HomeRegularCell {
                     cell.viewModel = HomeRegularCell.HomeRegularViewModel(title: "My Account")
                     return cell
                 }
             case .myAccount:
                 return collectionView.dequeueReusableCell(withReuseIdentifier: Constants.homeMyAccountCellIdentifier, for: indexPath)
             case .myExpensesOffline:
-                if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.homeOfflineCellIdentifier, for: indexPath) as? HomeRegularCell {
+                if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.homeRegularCellIdentifier, for: indexPath) as? HomeRegularCell {
                     cell.viewModel = HomeRegularCell.HomeRegularViewModel(title: "My Expenses")
                     return cell
                 }
             case .myExpenses:
                 return collectionView.dequeueReusableCell(withReuseIdentifier: Constants.homeMyExpensesCellIdentifier, for: indexPath)
             case .myInvestmentOffline:
-                if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.homeOfflineCellIdentifier, for: indexPath) as? HomeRegularCell {
+                if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.homeRegularCellIdentifier, for: indexPath) as? HomeRegularCell {
                     cell.viewModel = HomeRegularCell.HomeRegularViewModel(title: "My Investment")
                     return cell
                 }
@@ -115,32 +117,32 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
                     return cell
                 }
             case .transfer:
-                if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.homeOfflineCellIdentifier, for: indexPath) as? HomeRegularCell {
+                if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.homeRegularCellIdentifier, for: indexPath) as? HomeRegularCell {
                     cell.viewModel = HomeRegularCell.HomeRegularViewModel(title: "Transfer")
                     return cell
                 }
             case .bills:
-                if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.homeOfflineCellIdentifier, for: indexPath) as? HomeRegularCell {
+                if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.homeRegularCellIdentifier, for: indexPath) as? HomeRegularCell {
                     cell.viewModel = HomeRegularCell.HomeRegularViewModel(title: "Bills")
                     return cell
                 }
             case .openAccount:
-                if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.homeOfflineCellIdentifier, for: indexPath) as? HomeRegularCell {
+                if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.homeRegularCellIdentifier, for: indexPath) as? HomeRegularCell {
                     cell.viewModel = HomeRegularCell.HomeRegularViewModel(title: "Open A New Account")
                     return cell
                 }
             case .quote:
-                if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.homeOfflineCellIdentifier, for: indexPath) as? HomeRegularCell {
+                if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.homeRegularCellIdentifier, for: indexPath) as? HomeRegularCell {
                     cell.viewModel = HomeRegularCell.HomeRegularViewModel(title: "Quote")
                     return cell
                 }
             case .faq:
-                if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.homeOfflineCellIdentifier, for: indexPath) as? HomeRegularCell {
+                if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.homeRegularCellIdentifier, for: indexPath) as? HomeRegularCell {
                     cell.viewModel = HomeRegularCell.HomeRegularViewModel(title: "FAQ")
                     return cell
                 }
             case .terms:
-                if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.homeOfflineCellIdentifier, for: indexPath) as? HomeRegularCell {
+                if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.homeRegularCellIdentifier, for: indexPath) as? HomeRegularCell {
                     cell.viewModel = HomeRegularCell.HomeRegularViewModel(title: "Terms & Conditions")
                     return cell
                 }

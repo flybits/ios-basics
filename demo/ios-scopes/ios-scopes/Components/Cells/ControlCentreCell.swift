@@ -1,26 +1,25 @@
 //
-//  HomeLoginCell.swift
+//  ControlCentreCell.swift
 //  ios-scopes
 //
-//  Created by Nuo Xu on 2020-04-22.
+//  Created by Nuo Xu on 2020-04-23.
 //  Copyright © 2020 Nuo Xu. All rights reserved.
 //
 
 import UIKit
 
-class HomeLoginCell: UICollectionViewCell {
-    
-    private var loginLabel = UILabel()
+class ControlCentreCell: UICollectionViewCell {
+    private var titleLabel = UILabel()
     
     // MARK: - ViewModel
-    struct HomeLoginViewModel {
+    struct ControlCentreCellViewModel {
         let title: String
     }
     
-    var viewModel: HomeLoginViewModel? {
+    var viewModel: ControlCentreCellViewModel? {
         didSet {
             if let viewModel = viewModel {
-                loginLabel.text = viewModel.title
+                titleLabel.text = viewModel.title
             }
         }
     }
@@ -28,13 +27,12 @@ class HomeLoginCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        backgroundColor = .loginCelColor
+        titleLabel.font = .systemFont(ofSize: 14.0)
+        titleLabel.textColor = .white
+        titleLabel.textAlignment = .center
         
-        loginLabel.font = .systemFont(ofSize: 14.0)
-        loginLabel.textAlignment = .center
-        
-        contentView.addSubview(loginLabel)
-        loginLabel.pin(to: self, padding: UIEdgeInsets(top: 10.0, left: 10.0, bottom: 10.0, right: 10.0))
+        contentView.addSubview(titleLabel)
+        titleLabel.pin(to: self, padding: UIEdgeInsets(top: 10.0, left: 20.0, bottom: 10.0, right: 20.0))
     }
     
     @available(*, unavailable)
