@@ -8,37 +8,26 @@
 
 /* Begin PBXBuildFile section */
 		57438F44239AB14D00F1C1FB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57438F43239AB14D00F1C1FB /* AppDelegate.swift */; };
-		57438F48239AB14D00F1C1FB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57438F47239AB14D00F1C1FB /* ViewController.swift */; };
 		57438F4B239AB14D00F1C1FB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 57438F49239AB14D00F1C1FB /* Main.storyboard */; };
 		57438F4D239AB14E00F1C1FB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57438F4C239AB14E00F1C1FB /* Assets.xcassets */; };
 		57438F50239AB14E00F1C1FB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 57438F4E239AB14E00F1C1FB /* LaunchScreen.storyboard */; };
-		57438F58239ABCDC00F1C1FB /* LocationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57438F57239ABCDC00F1C1FB /* LocationData.swift */; };
 		57438F5A239ADEE100F1C1FB /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57438F59239ADEE100F1C1FB /* CoreLocation.framework */; };
-		57438F5E239AEE9A00F1C1FB /* ContentTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57438F5D239AEE9A00F1C1FB /* ContentTableViewController.swift */; };
+		57438F5E239AEE9A00F1C1FB /* ConciergeEmbeddedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57438F5D239AEE9A00F1C1FB /* ConciergeEmbeddedViewController.swift */; };
 		A51CB3EADA91631F84B34F9D /* Pods_ios_basics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92190BA537A3CEA5054E03ED /* Pods_ios_basics.framework */; };
-		B7566CAE2446ACF00093C9F7 /* MyScope.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7566CAD2446ACF00093C9F7 /* MyScope.swift */; };
-		B7566CB124475E5F0093C9F7 /* UIView+AutoLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7566CB024475E5F0093C9F7 /* UIView+AutoLayout.swift */; };
-		B7566CB3244762EF0093C9F7 /* UIView+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7566CB2244762EF0093C9F7 /* UIView+Utilities.swift */; };
-		B7566CB724476DD50093C9F7 /* ScopesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7566CB624476DD50093C9F7 /* ScopesViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		4027BC7831C70406D220B5E1 /* Pods-ios-basics.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios-basics.debug.xcconfig"; path = "Target Support Files/Pods-ios-basics/Pods-ios-basics.debug.xcconfig"; sourceTree = "<group>"; };
+		572C8D262479A296002F5F37 /* ios-basicsDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "ios-basicsDebug.entitlements"; sourceTree = "<group>"; };
 		57438F40239AB14D00F1C1FB /* ios-basics.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ios-basics.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		57438F43239AB14D00F1C1FB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		57438F47239AB14D00F1C1FB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		57438F4A239AB14D00F1C1FB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		57438F4C239AB14E00F1C1FB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		57438F4F239AB14E00F1C1FB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		57438F51239AB14E00F1C1FB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		57438F57239ABCDC00F1C1FB /* LocationData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationData.swift; sourceTree = "<group>"; };
 		57438F59239ADEE100F1C1FB /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		57438F5D239AEE9A00F1C1FB /* ContentTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentTableViewController.swift; sourceTree = "<group>"; };
+		57438F5D239AEE9A00F1C1FB /* ConciergeEmbeddedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConciergeEmbeddedViewController.swift; sourceTree = "<group>"; };
 		92190BA537A3CEA5054E03ED /* Pods_ios_basics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ios_basics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B7566CAD2446ACF00093C9F7 /* MyScope.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyScope.swift; sourceTree = "<group>"; };
-		B7566CB024475E5F0093C9F7 /* UIView+AutoLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+AutoLayout.swift"; sourceTree = "<group>"; };
-		B7566CB2244762EF0093C9F7 /* UIView+Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Utilities.swift"; sourceTree = "<group>"; };
-		B7566CB624476DD50093C9F7 /* ScopesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScopesViewController.swift; sourceTree = "<group>"; };
 		DF56FC3A90D1D2E32FA9FF69 /* Pods-ios-basics.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios-basics.release.xcconfig"; path = "Target Support Files/Pods-ios-basics/Pods-ios-basics.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -86,15 +75,13 @@
 		57438F42239AB14D00F1C1FB /* ios-basics */ = {
 			isa = PBXGroup;
 			children = (
-				B7566CAF24475E450093C9F7 /* Extensions */,
-				B7566CB524476DB00093C9F7 /* Content */,
-				B7566CAC24469E290093C9F7 /* Scopes */,
+				572C8D262479A296002F5F37 /* ios-basicsDebug.entitlements */,
 				57438F43239AB14D00F1C1FB /* AppDelegate.swift */,
-				57438F47239AB14D00F1C1FB /* ViewController.swift */,
 				57438F49239AB14D00F1C1FB /* Main.storyboard */,
 				57438F4C239AB14E00F1C1FB /* Assets.xcassets */,
 				57438F4E239AB14E00F1C1FB /* LaunchScreen.storyboard */,
 				57438F51239AB14E00F1C1FB /* Info.plist */,
+				57438F5D239AEE9A00F1C1FB /* ConciergeEmbeddedViewController.swift */,
 			);
 			path = "ios-basics";
 			sourceTree = "<group>";
@@ -106,33 +93,6 @@
 				92190BA537A3CEA5054E03ED /* Pods_ios_basics.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		B7566CAC24469E290093C9F7 /* Scopes */ = {
-			isa = PBXGroup;
-			children = (
-				B7566CAD2446ACF00093C9F7 /* MyScope.swift */,
-				B7566CB624476DD50093C9F7 /* ScopesViewController.swift */,
-			);
-			path = Scopes;
-			sourceTree = "<group>";
-		};
-		B7566CAF24475E450093C9F7 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				B7566CB024475E5F0093C9F7 /* UIView+AutoLayout.swift */,
-				B7566CB2244762EF0093C9F7 /* UIView+Utilities.swift */,
-			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
-		B7566CB524476DB00093C9F7 /* Content */ = {
-			isa = PBXGroup;
-			children = (
-				57438F57239ABCDC00F1C1FB /* LocationData.swift */,
-				57438F5D239AEE9A00F1C1FB /* ContentTableViewController.swift */,
-			);
-			path = Content;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -250,13 +210,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B7566CB3244762EF0093C9F7 /* UIView+Utilities.swift in Sources */,
-				B7566CB724476DD50093C9F7 /* ScopesViewController.swift in Sources */,
-				57438F58239ABCDC00F1C1FB /* LocationData.swift in Sources */,
-				B7566CB124475E5F0093C9F7 /* UIView+AutoLayout.swift in Sources */,
-				57438F48239AB14D00F1C1FB /* ViewController.swift in Sources */,
-				57438F5E239AEE9A00F1C1FB /* ContentTableViewController.swift in Sources */,
-				B7566CAE2446ACF00093C9F7 /* MyScope.swift in Sources */,
+				57438F5E239AEE9A00F1C1FB /* ConciergeEmbeddedViewController.swift in Sources */,
 				57438F44239AB14D00F1C1FB /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -402,7 +356,10 @@
 			baseConfigurationReference = 4027BC7831C70406D220B5E1 /* Pods-ios-basics.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_ENTITLEMENTS = "ios-basics/ios-basicsDebug.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = CH9YG7X49H;
 				INFOPLIST_FILE = "ios-basics/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -411,7 +368,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.flybits.ios-basics";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
+				PROVISIONING_PROFILE_SPECIFIER = "match Development com.flybits.Mastercard-Demo";
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -421,7 +379,8 @@
 			baseConfigurationReference = DF56FC3A90D1D2E32FA9FF69 /* Pods-ios-basics.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "ios-basics/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -430,7 +389,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.flybits.ios-basics";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

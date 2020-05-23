@@ -1,36 +1,45 @@
 PODS:
-  - FlybitsContextLocationPluginSDK (3.3.0):
-    - FlybitsContextSDK (= 3.3.0)
-    - FlybitsSDK (= 3.3.0)
-  - FlybitsContextSDK (3.3.0):
-    - FlybitsSDK (= 3.3.0)
-  - FlybitsKernelSDK (3.3.0):
-    - FlybitsSDK (= 3.3.0)
-  - FlybitsPushSDK (3.3.0):
-    - FlybitsSDK (= 3.3.0)
-  - FlybitsSDK (3.3.0)
+  - FlybitsConciergeSDK (3.3.3):
+    - FlybitsContextSDK (= 3.3.3)
+    - FlybitsKernelSDK (= 3.3.3)
+    - FlybitsPushSDK (= 3.3.3)
+    - FlybitsSDK (= 3.3.3)
+  - FlybitsContextLocationPluginSDK (3.3.3):
+    - FlybitsContextSDK (= 3.3.3)
+    - FlybitsSDK (= 3.3.3)
+  - FlybitsContextSDK (3.3.3):
+    - FlybitsSDK (= 3.3.3)
+  - FlybitsKernelSDK (3.3.3):
+    - FlybitsSDK (= 3.3.3)
+  - FlybitsPushSDK (3.3.3):
+    - FlybitsSDK (= 3.3.3)
+  - FlybitsSDK (3.3.3)
+  - FlybitsSmartRewardsSDK (3.3.3):
+    - FlybitsConciergeSDK (= 3.3.3)
 
 DEPENDENCIES:
-  - FlybitsContextLocationPluginSDK (= 3.3.0)
-  - FlybitsContextSDK (= 3.3.0)
-  - FlybitsKernelSDK (= 3.3.0)
-  - FlybitsPushSDK (= 3.3.0)
+  - FlybitsContextLocationPluginSDK (= 3.3.3)
+  - FlybitsSmartRewardsSDK (= 3.3.3)
 
 SPEC REPOS:
-  https://github.com/flybits/Spec-Xcode-11.3.1.git:
+  "git@github.com:flybits/Spec-Xcode-11.4.0.git":
+    - FlybitsConciergeSDK
     - FlybitsContextLocationPluginSDK
     - FlybitsContextSDK
     - FlybitsKernelSDK
     - FlybitsPushSDK
     - FlybitsSDK
+    - FlybitsSmartRewardsSDK
 
 SPEC CHECKSUMS:
-  FlybitsContextLocationPluginSDK: 921312a2044de3eda0f9db7d4d9c3ee2d15847cd
-  FlybitsContextSDK: 515cae3b8809b92d12f676485b0fe59d13f3c824
-  FlybitsKernelSDK: 3a05137365af4f5140ed12a41007e45332725f5b
-  FlybitsPushSDK: ed45975c7aa01a12d88359353846b224fc474212
-  FlybitsSDK: 63318ecc10c79d106040e6bd3af1da5fc5a8553e
+  FlybitsConciergeSDK: 3941cfabc8583d2e44e0b22a50740ca3fdfb1845
+  FlybitsContextLocationPluginSDK: 8268a94981a06dde5b94e0e4cea945e8d543be3e
+  FlybitsContextSDK: fd9838f362a3785cd2dc8bfd0783c643aa418086
+  FlybitsKernelSDK: ecc0be137cb52cabe3ee39bd13c9f4fcc73892d3
+  FlybitsPushSDK: 8cd1d24338f9897e0a188bab8ad6a93ece7f75a4
+  FlybitsSDK: 93e5f0fed4681e30aa4811f7f4d611a18e666f35
+  FlybitsSmartRewardsSDK: abcf7e7190258c134a7e5dcfd61e56a1590ec91f
 
-PODFILE CHECKSUM: 90fa0ae6fcffb171093955f9a4bb4c4c6e021b6c
+PODFILE CHECKSUM: 5d7a9ba223c36a76c622fecc4e9d41853216b8a0
 
 COCOAPODS: 1.8.4

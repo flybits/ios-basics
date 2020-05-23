@@ -20,6 +20,23 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>While in use allows us to deliver relevant content based on your context while navigating the app.
+        
+        Always enabled allows us to deliver relevant content even when you are outside of the app.</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Always enabled allows us to deliver relevant content even when you are outside of the app.</string>
+	<key>NSLocationUsageDescription</key>
+	<string>While in use allows us to deliver relevant content based on your context while navigating the app.
+        
+        Always enabled allows us to deliver relevant content even when you are outside of the app.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>When in use allows us to deliver relevant content based on your context while navigating the app.</string>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>location</string>
+		<string>remote-notification</string>
+	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
