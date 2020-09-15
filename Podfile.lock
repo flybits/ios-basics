@@ -7,14 +7,14 @@ DEPENDENCIES:
   - FlybitsKernelSDK (= 3.1.1)
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  https://github.com/flybits/Spec-Xcode-11.1.0.git:
     - FlybitsKernelSDK
     - FlybitsSDK
 
 SPEC CHECKSUMS:
-  FlybitsKernelSDK: f2ecd4c3164df1031c7135c18e67082d07ec84d5
-  FlybitsSDK: eba46983357ef1d0aacec1030d489b09a27ddd8f
+  FlybitsKernelSDK: fc9b6fa61a683722e15d66290a9c45750acae7a0
+  FlybitsSDK: 358fa12c8c4f1f530aa1e28dbbb351809af35558
 
-PODFILE CHECKSUM: de30d544b5550455b832d852ec11b6685315a2d3
+PODFILE CHECKSUM: 3efd8429ea48f97ae452b272d2a713bb9864bde6
 
-COCOAPODS: 1.7.5
+COCOAPODS: 1.8.4
